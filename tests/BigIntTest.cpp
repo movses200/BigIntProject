@@ -46,7 +46,7 @@ TEST(deduction, ded_3)
 {
     ACA::BigInt number_1("55555555");
     ACA::BigInt number_2("555555555");
-    const auto expected = std::exception("Trying to make BigInt negative!!!");
+    const auto expected = std::logic_error("Trying to make BigInt negative!!!");
 
     EXPECT_THROW(
         {
@@ -54,13 +54,13 @@ TEST(deduction, ded_3)
             {
                 const auto actual = number_1 - number_2;
             }
-            catch (const std::exception &err)
+            catch (const std::logic_error &err)
             {
                 EXPECT_STREQ(err.what(), expected.what());
                 throw;
             }
         },
-        std::exception);
+        std::logic_error);
 }
 
 TEST(multiplication, mul_1)
@@ -85,7 +85,7 @@ TEST(division, div_1)
 {
     BigInt number_1("2");
     BigInt number_2("0");
-    const auto expected = std::exception("Trying to divide by 0 !!!\n");
+    const auto expected = std::logic_error("Trying to divide by 0 !!!\n");
 
     EXPECT_THROW(
         {
@@ -93,13 +93,13 @@ TEST(division, div_1)
             {
                 const auto actual = number_1 / number_2;
             }
-            catch (const std::exception &err)
+            catch (const std::logic_error &err)
             {
                 EXPECT_STREQ(err.what(), expected.what());
                 throw;
             }
         },
-        std::exception);
+        std::logic_error);
 }
 
 TEST(division, div_2)
