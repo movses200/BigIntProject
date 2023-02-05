@@ -14,13 +14,13 @@ BigInt::BigInt(const string& s)
 {
 	if(s.size() >= 2 && s[0] == '0'){
 		std::cout << "Your input is not correc, write only numbers!!!\n";
-		throw std::exception("Trying to input none number expression!!!\n");
+		throw std::logic_error("Trying to input none number expression!!!\n");
 	}
 
 	for(auto it = s.begin();it != s.end(); it++){
 		if(((*it)-48) < 0 || ((*it)-48) > 9){
 			std::cout << "Your input is not correc, write only numbers!!!\n";
-			throw std::exception("Trying to input none number expression!!!\n");
+			throw std::logic_error("Trying to input none number expression!!!\n");
 		}
 	}
 	digits = s;
@@ -261,7 +261,7 @@ BigInt& BigInt::operator-=(const BigInt& rhs)
 {
 	if (*this < rhs) {
 		std::cout << "BigInt numbers can't be negative\n";			
-		throw std::exception("Trying to make BigInt negative!!!");
+		throw std::logic_error("Trying to make BigInt negative!!!");
 	}
 	else if (*this == rhs) {
 		this->digits = "0";
@@ -371,7 +371,7 @@ BigInt& BigInt::operator/=(const BigInt& rhs)
 {
 	if(rhs.digits=="0"){
 		std::cout<<"The number can't be divided by 0 !!!\n"; 
-		throw std::exception("Trying to divide by 0 !!!\n");
+		throw std::logic_error("Trying to divide by 0 !!!\n");
 	}
 
 	BigInt count("0");
@@ -395,7 +395,7 @@ BigInt& BigInt::operator%=(const BigInt& rhs)
 {
 	if(rhs.digits=="0"){
 		std::cout<<"The number can't be divided by 0 !!!\n"; 
-		throw std::exception("Trying to divide by 0 !!!\n");
+		throw std::logic_error("Trying to divide by 0 !!!\n");
 	}
 
 	while(*this>rhs){
