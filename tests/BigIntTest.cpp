@@ -76,7 +76,7 @@ TEST(multiplication, mul_2)
 {
     BigInt number_1("2");
     BigInt number_2("555555555");
-    const auto expected = BigInt("100000000");
+    const auto expected = BigInt("1111111110");
     const auto actual = number_1 * number_2;
     ASSERT_EQ(expected, actual);
 }
@@ -106,7 +106,7 @@ TEST(division, div_2)
 {
     BigInt number_1("8");
     BigInt number_2("2");
-    const auto expected = BigInt("3");
+    const auto expected = BigInt("4");
     const auto actual = number_1 / number_2;
     ASSERT_EQ(expected, actual);
 }
@@ -134,7 +134,7 @@ TEST(degree, deg_1)
     BigInt number_1("8");
     BigInt number_2("2");
     const auto expected = BigInt("64");
-    const auto actual = number_1 % number_2;
+    const auto actual = number_1 ^ number_2;
     ASSERT_EQ(expected, actual);
 }
 
